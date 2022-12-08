@@ -29,8 +29,9 @@ impl ParsePosNonzeroError {
 }
 
 fn parse_pos_nonzero(s: &str) -> Result<PositiveNonzeroInteger, ParsePosNonzeroError> {
-    // TODO: change this to return an appropriate error instead of panicking
-    // when `parse()` returns an error.
+    // let x = s.parse().map_err(ParsePosNonzeroError::from_parseint)?;
+    // PositiveNonzeroInteger::new(x).map_err(ParsePosNonzeroError::from_creation)
+    // https://lazyren.github.io/studylog/rustlings-error-handling#errors6rs
     let x = s.parse();
     if let Err(ParseIntError) = x {
         return Err(ParsePosNonzeroError::from_parseint(ParseIntError));
